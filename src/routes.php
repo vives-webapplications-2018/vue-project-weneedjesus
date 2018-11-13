@@ -16,7 +16,21 @@ $app->get('/index', function (Request $request, Response $response, array $args)
 //Routes for forms
 $app->post('/register', function (Request $request, Response $response, array $args) {
     $user = new Kaffie();
-    
+
+    $array = array(
+        //TODO: make an array here with key => value and then make the
+        //foreach loop + also check for $args
+    );
+
+    //repetitive code, at a later time it will be implemented as an array
+    $user::table('user')->name = $_POST['name'];
+    $user::table('user')->password = $_POST['password'];
+    $user::table('user')->email = $_POST['email'];
+    $user::table('user')->address = $_POST['address'];
+    $user::table('user')->zip = $_POST['zip'];
+    $user::table('user')->city = $_POST['city'];
+    $user::table('user')->owner = $_POST['owner'];
+
     return $this->renderer->render($response, 'customer.phtml', $args); //TODO: needs to direct to a page where customers can be added and be overviewed.
 });
 
