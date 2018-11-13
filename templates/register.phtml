@@ -26,13 +26,70 @@
                 letter-spacing: -3px;
                 font-family: 'Yu Gothic Light';
                 font-size: 100px;
-                margin-bottom: 10%;
-                margin-top: 10%;
             }
+
+        
         </style>
     </head>
     <body>
         <h1>Kaffie</h1>
+
+        <div class="form">
+            <div class="row">
+                <form class="col s6 offset-s3">
+                <div class="row">
+                    <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="first_name" type="text" class="validate">
+                    <label for="first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="last_name" type="text" class="validate">
+                    <label for="last_name">Last Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                    <i class="material-icons prefix">lock</i>
+                    <input id="password" type="password" class="validate">
+                    <label for="password">Password</label>
+                    </div>
+                    <div class="input-field col s6">
+                    <i class="material-icons prefix">lock</i>
+                    <input id="confirmpassword" type="password" class="validate">
+                    <label for="confirmpassword">Confirm Password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                    <i class="material-icons prefix">email</i>
+                    <input id="email" type="email" class="validate">
+                    <label for="email">E-mail</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                    <i class="material-icons prefix">markunread_mailbox</i>
+                    <input id="address" type="text" class="validate">
+                    <label for="email">Address</label>
+                    </div>
+                    <div class="input-field col s3">
+                    <i class="material-icons prefix">markunread_mailbox</i>
+                    <input id="zip" type="text" class="validate">
+                    <label for="zip">Zip</label>
+                    </div>
+                    <div class="input-field col s3">
+                    <i class="material-icons prefix">location_city</i>
+                    <input id="city" type="text" class="validate">
+                    <label for="city">City</label>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+
         <a  href="/" class="waves-effect waves-light btn-large"><i class="material-icons right">exit_to_app</i>Back</a>
+        <button class="btn waves-effect waves-light btn-large" type="submit" name="action">Submit<i class="material-icons right">send</i></button>
     </body>
 </html>
