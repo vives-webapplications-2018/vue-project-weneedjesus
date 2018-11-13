@@ -6,7 +6,7 @@ use Slim\Http\Response;
 // Routes
 
 $app->get('/', function (Request $request, Response $response, array $args) {
-    return $response->withRedirect('/main', $status = null);
+    return $response->withRedirect('/index', $status = null);
 });
 
 $app->get('/index', function (Request $request, Response $response, array $args) {
