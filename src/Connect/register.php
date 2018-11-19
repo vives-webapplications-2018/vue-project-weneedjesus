@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Connect;
-session_start();
 use App\Models\Kaffie;
 use App\Connect\connect;
 
@@ -11,10 +10,10 @@ class register {
     function __construct(){
     }
 
-    function registration($em, $pw, $cpw, $name, $lastname, $addr, $zip, $city, $owner){
-            $hash_pw = validPw($pw, $cpw);
+    public function registration($em, $pw, $cpw, $name, $lastname, $addr, $zip, $city, $owner){
+            $hash_pw = $this->validPw($pw, $cpw);
             $tempArr= array($em, $hash_pw, $name, $lastname, $addr, $zip, $city, $owner);
-            $cleanArr = trim($tempArr);
+            $cleanArr = $this->trim($tempArr);
 
             //Constructing the sql statement and prepare it.
             $sql = "SELECT COUNT(email) AS em FROM users WHERE email = :email";
@@ -47,7 +46,6 @@ class register {
         }
         //TODO: need to check if username already exists (using PDO)
    
-
     function trim($array){
         foreach($array as $item){
             if($item != $em){
@@ -70,7 +68,7 @@ class register {
         return !filter_var($email, FILTER_VALIDATE_EMAIL) === false;
     }
 
-    function validPw($pw, $cpw){
+    public function validPw($pw, $cpw){
         if($pw == $cpw){
             return md5($pw);
         }
