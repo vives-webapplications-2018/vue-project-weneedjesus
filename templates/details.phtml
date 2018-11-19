@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8"/>
         <title>Kaffie</title>
-        <link rel='shortcut icon' type='image/PNG' href='images/favicon.PNG' />
         <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -37,6 +36,12 @@
     </head>
        
     <body>
+
+        <div class="row">
+            <a href="" class="btn waves-effect waves-light btn-large">Add<i class="material-icons right">send</i></a>
+            <a href="" class="btn waves-effect waves-light btn-large">Back<i class="material-icons right">send</i></a>
+            <input value="Delete" type="button" class="btn waves-effect waves-light btn-large" onClick="fetch('/products/<?= $product->id ?>', {method: 'DELETE'}); document.location.href='/products';" />
+        </div>
 
     </body>
 </html>
