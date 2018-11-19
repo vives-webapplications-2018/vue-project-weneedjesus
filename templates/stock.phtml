@@ -35,7 +35,30 @@
         </style>
     </head>
        
-    <body>
+        <body>
+
+        <?php 
+
+        use \App\Models\Kaffie;
+
+        $products = Kaffie::all();
+        $listOfProducts = [];
+        $listOfId = [];
+
+
+        foreach ($products as $product) {
+        $productName = $products->title;
+        $productId = $todo->id;
+        array_push($listOfId, $productId);
+        
+        $productInfo = $productId . ". " . $productName;
+
+        array_push($listOfProducts, $productInfo);
+        }
+        echo $listOfProducts = new New_list($listOfProducts, $listOfId);
+
+    ?>
+
         <div class="row">
         <a href="" class="btn waves-effect waves-light btn-large">Add product<i class="material-icons right">send</i></a>
         </div>
