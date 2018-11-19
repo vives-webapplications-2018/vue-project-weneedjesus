@@ -2,6 +2,7 @@
 
 namespace App\Connect;
 use App\Models\Kaffie;
+use App\Connect\connect;
 
 //http://thisinterestsme.com/php-user-registration-form/
 class register {
