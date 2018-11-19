@@ -19,7 +19,7 @@ $app->post('/register', function (Request $request, Response $response, array $a
     $user = new Kaffie();
     $register = new Register();
     if(isset($_POST['submit'])){
-        $register->registration($_POST['email'], $_POST['password'],$_POST['confirmpassword'] ,$_POST['name'], $_POST['lastname'], $_POST['address'], 
+        $register->registration($_POST['email'], $_POST['password'],$_POST['confirmpassword'] ,$_POST['first_name'], $_POST['last_name'], $_POST['address'], 
         $_POST['zip'], $_POST['city'], $_POST['owner']);
     }
    
