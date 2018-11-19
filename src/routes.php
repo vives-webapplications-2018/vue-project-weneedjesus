@@ -22,8 +22,6 @@ $app->post('/register', function (Request $request, Response $response, array $a
         $register->registration($_POST['email'], $_POST['password'],$_POST['confirmpassword'] ,$_POST['first_name'], $_POST['last_name'], $_POST['address'], 
         $_POST['zip'], $_POST['city'], $_POST['owner']);
     }
-   
-
     $array = array(
         //TODO: make an array here with key => value and then make the
         //foreach loop + also check for $args
