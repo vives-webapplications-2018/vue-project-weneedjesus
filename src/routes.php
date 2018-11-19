@@ -18,6 +18,7 @@ $app->get('/index', function (Request $request, Response $response, array $args)
 $app->post('/register', function (Request $request, Response $response, array $args) {
     $user = new Kaffie();
     $register = new Register();
+    echo "Hello test"; //test failing
     if(isset($_POST['action'])){
         $register->registration($_POST['email'], $_POST['password'],$_POST['confirmpassword'] ,$_POST['first_name'], $_POST['last_name'], $_POST['address'], 
         $_POST['zip'], $_POST['city'], $_POST['owner']);
