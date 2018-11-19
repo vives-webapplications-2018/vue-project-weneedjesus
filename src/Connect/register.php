@@ -11,7 +11,7 @@ class register {
 
     function registration($em, $pw, $cpw, $name, $lastname, $addr, $zip, $city, $owner){
             $hash_pw = validPw($pw, $cpw);
-            $tempArr= array($em, $pw, $cpw, $name, $lastname, $addr, $zip, $city, $owner);
+            $tempArr= array($em, $hash_pw, $name, $lastname, $addr, $zip, $city, $owner);
             $cleanArr = trim($tempArr);
 
             //Constructing the sql statement and prepare it.
@@ -29,7 +29,17 @@ class register {
             //Preparing our INSERT statement
             $sql = "INSERT INTO user VALUES (:firstname, :lastname, :password, :email, :address, :zip, :city, :owner)";
             $stmt = $pdo->prepare($sql);
-    
+
+            //Binding values not professional way, TODO: 2 arrays fori
+
+            $stmt->bindValue(':firstname', $cleanArr->name);
+            $stmt->bindValue(':lastname', $cleanArr->lastname);
+            $stmt->bindValue(':password', $cleanArr->hash_pw);
+            $stmt->bindValue(':email', $cleanArr->em);
+            $stmt->bindValue(':address', $cleanArr->address);
+            $stmt->bindValue(':zip', $cleanArr->zip);
+            $stmt->bindValue(':city',$cleanArr->city);
+            $stmt->bindValue(':owner', $cleanArr->owner);
         }
         //TODO: need to check if username already exists (using PDO)
    
