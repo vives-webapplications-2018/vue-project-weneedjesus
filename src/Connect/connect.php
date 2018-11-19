@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Connect;
+
 //connect.php
 
 //Our MySQL user account.
