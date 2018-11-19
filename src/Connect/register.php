@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Connect;
+use App\Models\Kaffie;
 
 //http://thisinterestsme.com/php-user-registration-form/
 class register {
@@ -13,7 +14,22 @@ class register {
             $tempArr= array($em, $pw, $cpw, $name, $lastname, $addr, $zip, $city, $owner);
             $cleanArr = trim($tempArr);
 
+            //Constructing the sql statement and prepare it.
+            $sql = "SELECT COUNT(email) AS em FROM users WHERE email = :email";
+            $stmt = $pdo->prepare($sql);
+
+            //Binding the provided username to our prepared statement.
+            $stmt->bindValue(':email', $cleanArr->em);
+            $stmt->execute();
             
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            if($row['em'] > 0){
+                die('That e-mail already exists!');
+            }
+            //Preparing our INSERT statement
+            $sql = "INSERT INTO user VALUES (:firstname, :lastname, :password, :email, :address, :zip, :city, :owner)";
+            $stmt = $pdo->prepare($sql);
+    
         }
         //TODO: need to check if username already exists (using PDO)
    
