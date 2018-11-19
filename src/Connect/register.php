@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Connect;
+session_start();
 use App\Models\Kaffie;
 use App\Connect\connect;
 
