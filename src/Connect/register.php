@@ -50,11 +50,13 @@ class register {
         foreach($array as $item){
             if($item != $em){
                 $item = !empty($item) ? trim($item) : null;
-                $newArr->push($item);
+                $newArr = array();
+                array_push($newArr, $item);
             }else{
-                if(valid($item)){
+                if($this->valid($item)){
                     $item = !empty($item) ? trim($item) : null;
-                    $newArr->push($item);
+                    $newArr = array();
+                    array_push($newArr, $item);
                 }
             }
         }
