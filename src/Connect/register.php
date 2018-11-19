@@ -15,7 +15,7 @@ class register {
             $cleanArr = trim($tempArr);
 
             //Constructing the sql statement and prepare it.
-            $sql = "SELECT COUNT(email) AS em FROM users WHERE email = :email";
+            $sql = "SELECT COUNT(email) AS em FROM user WHERE email = :email";
             $stmt = $pdo->prepare($sql);
 
             //Binding the provided username to our prepared statement.
