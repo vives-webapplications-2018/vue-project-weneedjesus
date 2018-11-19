@@ -36,10 +36,12 @@ class register {
             $stmt->bindValue(':lastname', $cleanArr->lastname);
             $stmt->bindValue(':password', $cleanArr->hash_pw);
             $stmt->bindValue(':email', $cleanArr->em);
-            $stmt->bindValue(':address', $cleanArr->address);
+            $stmt->bindValue(':address', $cleanArr->addr);
             $stmt->bindValue(':zip', $cleanArr->zip);
             $stmt->bindValue(':city',$cleanArr->city);
             $stmt->bindValue(':owner', $cleanArr->owner);
+
+            $result = $stmt->execute();
         }
         //TODO: need to check if username already exists (using PDO)
    
