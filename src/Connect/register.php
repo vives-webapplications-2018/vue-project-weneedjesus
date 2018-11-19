@@ -16,7 +16,7 @@ class register {
             $cleanArr = $this->trim($tempArr);
 
             //Constructing the sql statement and prepare it.
-            $sql = "SELECT COUNT(email) AS em FROM users WHERE email = :email";
+            $sql = "SELECT COUNT(email) AS em FROM users WHERE email = :email"; // need to solve db connection here, $sql is empty!!
             $stmt = $pdo->prepare($sql);
 
             //Binding the provided username to our prepared statement.
@@ -64,7 +64,7 @@ class register {
     }
 
     function valid($em){
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)){ //gives invalid email format when valid
             echo "Invalid email format";
         }
         return !filter_var($email, FILTER_VALIDATE_EMAIL) === false;
