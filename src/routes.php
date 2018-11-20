@@ -16,13 +16,14 @@ $app->get('/index', function (Request $request, Response $response, array $args)
 });
 
 //Routes for forms (users)
-$app->post('/register', function (Request $request, Response $response, array $args) {
+$app->post('/overview', function (Request $request, Response $response, array $args) {
     $user = new User();
 
     if($user->valid($request->getParam('email'))) {
         $user->email = $request->getParam('email');
-    }
+    }else {
 
+    }
     $user->password = $user->validPw($request->getParam('password'), $request->getParam('confirmpassword'));
     $user->lastname = $request->getParam('last_name');
     $user->firstname = $request->getParam('first_name');
@@ -35,21 +36,9 @@ $app->post('/register', function (Request $request, Response $response, array $a
     return $this->renderer->render($response, 'overview.phtml', $args);
 });
 
-$app->post('/login', function (Request $request, Response $response, array $args) {
-    //also class login.php will be used here
-    //$userLogin = $_POST['email'];
-
-    return $this->renderer->render($response, 'overview.phtml', $args);
-});
-
 $app->post('/overview', function (Request $request, Response $response, array $args) {
-    //also class login.php will be used here
-    //$userLogin = $_POST['email'];
-
     return $this->renderer->render($response, 'overview.phtml', $args);
 });
-
-
 
 //Routes with overview and other things that could be useful
 $app->get('/login', function (Request $request, Response $response, array $args) {
