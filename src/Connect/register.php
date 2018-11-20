@@ -2,7 +2,7 @@
 
 namespace App\Connect;
 use App\Models\Kaffie;
-use App\Connect\connect;
+Include 'connect.php';
 
 //http://thisinterestsme.com/php-user-registration-form/
 class Register {
@@ -26,7 +26,7 @@ class Register {
             $cleanArr = $this->trim($tempArr);
 
             //Constructing the sql statement and prepare it.
-            $sql = "SELECT COUNT(email) AS em FROM users WHERE email = 'jelle.debuyzere@hotmail.be' "; // need to solve db connection here, $sql is empty!!
+            $sql = "SELECT COUNT(email) AS em FROM users WHERE email = :email "; // need to solve db connection here, $sql is empty!!
             $stmt = $pdo->prepare($sql);
 
             //Binding the provided username to our prepared statement.
