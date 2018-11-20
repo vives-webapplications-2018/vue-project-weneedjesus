@@ -22,7 +22,8 @@ $app->post('/register', function (Request $request, Response $response, array $a
     if($user->valid($request->getParam('email'))) {
         $user->email = $request->getParam('email');
     }
-    $user->password = $request->getParam('password');
+
+    $user->password = $user->validPw($request->getParam('password'), $request->getParam('confirmpassword'));
     $user->lastname = $request->getParam('last_name');
     $user->firstname = $request->getParam('first_name');
     $user->address = $request->getParam('address');
@@ -30,6 +31,7 @@ $app->post('/register', function (Request $request, Response $response, array $a
     $user->city = $request->getParam('city');
 
     $user->save();
+
     return $this->renderer->render($response, 'overview.phtml', $args);
 });
 
@@ -43,7 +45,7 @@ $app->post('/login', function (Request $request, Response $response, array $args
 
 //Routes with overview and other things that could be useful
 $app->get('/login', function (Request $request, Response $response, array $args) {
-    return $this->renderer->render($response, 'overview.phtml', $args);
+    return $this->renderer->render($response, 'login.phtml', $args);
 });
 
 $app->get('/register', function (Request $request, Response $response, array $args) {
@@ -57,5 +59,11 @@ $app->get('/customer', function (Request $request, Response $response, array $ar
 $app->get('/stock', function (Request $request, Response $response, array $args) {
     return $this->renderer->render($response, 'stock.phtml', $args);
 });
+
+$app->get('/overview', function (Request $request, Response $response, array $args) {
+    return $this->renderer->render($response, 'overview.phtml', $args);
+});
+
+
 
 
