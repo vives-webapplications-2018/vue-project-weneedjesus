@@ -30,21 +30,14 @@ $app->post('/login', function (Request $request, Response $response, array $args
     $user->zip = $request->getParam('zip');
     $user->city = $request->getParam('city');
 
-    $args['email'] = $user->email;
-    $args['lastname'] = $user->lastname;
-    $args['firstname'] = $user->firstname;
-    $args['address'] = $user->address;
-    $args['zip'] = $user->zip;
-    $args['city'] = $user->city;
-    //$args['owner'] = $user->owner;
-
-
     $user->save();
 
     return $this->renderer->render($response, 'login.phtml', $args);
 });
 
 $app->post('/overview', function (Request $request, Response $response, array $args) {
+    $args['email'] = $request->getParam('email');
+
     return $this->renderer->render($response, 'overview.phtml', $args);
 });
 
