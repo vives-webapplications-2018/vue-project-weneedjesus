@@ -2,6 +2,7 @@
 
 **Users**
 
+```sql
 CREATE DATABASE kaffie; 
 USE kaffie; 
 CREATE TABLE users( 
@@ -21,9 +22,11 @@ INSERT INTO users (firstname, lastname, password, email, address, zip, city, own
  ('firstname1', 'lastname1', 'password1', 'email1', 'address1', 8000, 'city1', true);
 
 SELECT * FROM users;  
+```
 
 **Products**
 
+```sql
 CREATE DATABASE kaffie; 
 USE kaffie; 
 CREATE TABLE products( 
@@ -38,4 +41,5 @@ INSERT INTO products (name, price, description) VALUES
  ('Jupiler', '2,20' , 'beer');
 
 
-SELECT * FROM products;  
+SELECT * FROM products;
+```
