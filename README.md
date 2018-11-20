@@ -6,7 +6,7 @@ We will make a dynamic app for bar and restaurant owners. The app will calculate
 
 **Why?**
 
-To make there lives easier. So the barman doesn't have to get a calculator and work out the price. It will also be easier to see what is bought the most and what needs to be ordered more because the stock runs out fast.
+To make their lives easier, so the barman doesn't have to get a calculator and work out the price. It will also be easier to see what is bought the most and what needs to be ordered more because the stock runs out fast.
 
 **How?**
 
