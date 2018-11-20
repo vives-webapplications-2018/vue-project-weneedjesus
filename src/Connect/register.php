@@ -7,16 +7,25 @@ use App\Connect\connect;
 //http://thisinterestsme.com/php-user-registration-form/
 class register {
 
-    function __construct(){
+    function __construct($em, $pw, $cpw, $name, $lastname, $addr, $zip, $city/*, $owner*/){
+        $this->em = $em;
+        $this->pw = $pw;
+        $this->cpw = $cpw;
+        $this->name = $name;
+        $this->lastname = $lastname;
+        $this->addr = $addr;
+        $this->zip = $zip;
+        $this->city = $city;
+        $this->registration($this->em, $this->pw, $this->cpw, $this->name, $this->lastname, $this->addr, $this->zip, $this->city);
     }
 
-    public function registration($em, $pw, $cpw, $name, $lastname, $addr, $zip, $city, $owner){
+    public function registration($em, $pw, $cpw, $name, $lastname, $addr, $zip, $city/*, $owner*/){
             $hash_pw = $this->validPw($pw, $cpw);
-            $tempArr= array($em, $hash_pw, $name, $lastname, $addr, $zip, $city, $owner);
+            $tempArr= array($em, $hash_pw, $name, $lastname, $addr, $zip, $city/*, $owner*/);
             $cleanArr = $this->trim($tempArr);
 
             //Constructing the sql statement and prepare it.
-            $sql = "SELECT COUNT(email) AS em FROM users WHERE email = :email"; // need to solve db connection here, $sql is empty!!
+            $sql = "SELECT COUNT(email) AS em FROM users WHERE email = 'jelle.debuyzere@hotmail.be' "; // need to solve db connection here, $sql is empty!!
             $stmt = $pdo->prepare($sql);
 
             //Binding the provided username to our prepared statement.
@@ -48,7 +57,7 @@ class register {
    
     function trim($array){
         foreach($array as $item){
-            if($item != $em){
+            if($item != $this->em){ 
                 $item = !empty($item) ? trim($item) : null;
                 $newArr = array();
                 array_push($newArr, $item);
