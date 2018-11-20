@@ -3,6 +3,7 @@
 use Slim\Http\Request;
 use Slim\Http\Response;
 use App\Models\Kaffie;
+use App\Models\User;
 use App\Connect\Register;
 
 // Routes for main page
@@ -16,9 +17,23 @@ $app->get('/index', function (Request $request, Response $response, array $args)
 
 //Routes for forms (users)
 $app->post('/register', function (Request $request, Response $response, array $args) {
-    $user = new Kaffie();
-    $register = new Register($_POST['email'], $_POST['password'],$_POST['confirmpassword'] ,$_POST['first_name'], $_POST['last_name'], $_POST['address'], 
-$_POST['zip'], $_POST['city']/*, $_POST['owner']*/);
+    $user = new User();
+    $user->email = $request->getParam('email');
+    $user->password = $request->getParam('password');
+    $user->lastname = $request->getParam('last_name');
+    $user->firstname = $request->getParam('first_name');
+    $user->address = $request->getParam('address');
+    $user->zip = $request->getParam('zip');
+    $user->city = $request->getParam('city');
+
+    $user->save();
+
+    
+    
+    
+    //$user = new Kaffie();
+    //$register = new Register($_POST['email'], $_POST['password'],$_POST['confirmpassword'] ,$_POST['first_name'], $_POST['last_name'], $_POST['address'], 
+//$_POST['zip'], $_POST['city']/*, $_POST['owner']*/);
     echo "Hello test"; //test failing
 /*
     $user::table('users')->name = $_POST['name'];
