@@ -73,10 +73,10 @@ class register {
     }
 
     function valid($em){
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)){ //gives invalid email format when valid
+        if (!filter_var($em, FILTER_VALIDATE_EMAIL)){ //gives invalid email format when valid
             echo "Invalid email format";
         }
-        return !filter_var($email, FILTER_VALIDATE_EMAIL) === false;
+        return !filter_var($em, FILTER_VALIDATE_EMAIL) === false;
     }
 
     public function validPw($pw, $cpw){
