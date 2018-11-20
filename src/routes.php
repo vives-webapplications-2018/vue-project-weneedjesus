@@ -16,7 +16,7 @@ $app->get('/index', function (Request $request, Response $response, array $args)
 });
 
 //Routes for forms (users)
-$app->post('/overview', function (Request $request, Response $response, array $args) {
+$app->post('/register', function (Request $request, Response $response, array $args) {
     $user = new User();
 
     if($user->valid($request->getParam('email'))) {
@@ -36,7 +36,7 @@ $app->post('/overview', function (Request $request, Response $response, array $a
     return $this->renderer->render($response, 'overview.phtml', $args);
 });
 
-$app->post('/overview', function (Request $request, Response $response, array $args) {
+$app->post('/login', function (Request $request, Response $response, array $args) {
     return $this->renderer->render($response, 'overview.phtml', $args);
 });
 

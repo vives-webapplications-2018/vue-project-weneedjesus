@@ -8,13 +8,9 @@ class User extends Model
 {
     public $timestamps = false;
 
-    function trim($array){
-        foreach($array as $item){
-                $item = !empty($item) ? trim($item) : null;
-                $newArr = array();
-                array_push($newArr, $item);
-        }
-        return $newArr;
+    function trim($item){
+        $trimmed = !empty($item) ? trim($item) : null;
+        return $trimmed;
     }
 
     public function valid($em){
