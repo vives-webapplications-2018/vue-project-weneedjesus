@@ -17,6 +17,7 @@
         <?php 
 
         use \App\Models\Kaffie;
+//        use \App\Listcreator\NewList;
 
         $products = Kaffie::all();
         $listOfProducts = [];
@@ -35,7 +36,6 @@
         echo $listOfProducts = new New_list($listOfProducts, $listOfId);
 
     ?>
-
         <div class="row">
         <a href="" class="btn waves-effect waves-light btn-large">Add product<i class="material-icons right">send</i></a>
         </div>
