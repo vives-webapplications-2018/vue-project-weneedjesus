@@ -42,6 +42,14 @@ $app->post('/login', function (Request $request, Response $response, array $args
     return $this->renderer->render($response, 'overview.phtml', $args);
 });
 
+$app->post('/overview', function (Request $request, Response $response, array $args) {
+    //also class login.php will be used here
+    //$userLogin = $_POST['email'];
+
+    return $this->renderer->render($response, 'overview.phtml', $args);
+});
+
+
 
 //Routes with overview and other things that could be useful
 $app->get('/login', function (Request $request, Response $response, array $args) {
