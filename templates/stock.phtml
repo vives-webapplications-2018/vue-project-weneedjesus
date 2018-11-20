@@ -19,20 +19,17 @@
 //        use \App\Listcreator\NewList;
 
         $products = Product::all();
-        $listOfProducts = [];
-        $listOfId = [];
-
-
-        foreach ($products as $product) {
-        $productName = $products->title;
-        $productId = $todo->id;
-        array_push($listOfId, $productId);
         
-        $productInfo = $productId . ". " . $productName;
+        foreach($products as $product){
+            $productId = $product->id;
+            $productName = $product->name;
+            $productQuantity = $product->quantity;
 
-        array_push($listOfProducts, $productInfo);
+            echo $productId . ". " . $productName;
         }
-        echo $listOfProducts = new New_list($listOfProducts, $listOfId);
+
+
+        
 
     ?>
         <div class="row">
