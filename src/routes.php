@@ -22,7 +22,6 @@ $app->post('/login', function (Request $request, Response $response, array $args
     if($user->valid($request->getParam('email'))) {
         $user->email = $request->getParam('email');
     }else {
-
     }
     $user->password = $user->validPw($request->getParam('password'), $request->getParam('confirmpassword'));
     $user->lastname = $request->getParam('last_name');
@@ -30,6 +29,15 @@ $app->post('/login', function (Request $request, Response $response, array $args
     $user->address = $request->getParam('address');
     $user->zip = $request->getParam('zip');
     $user->city = $request->getParam('city');
+
+    $args['email'] = $user->email;
+    $args['lastname'] = $user->lastname;
+    $args['firstname'] = $user->firstname;
+    $args['address'] = $user->address;
+    $args['zip'] = $user->zip;
+    $args['city'] = $user->city;
+    //$args['owner'] = $user->owner;
+
 
     $user->save();
 
