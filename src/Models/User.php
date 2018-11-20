@@ -8,11 +8,12 @@ class User extends Model
 {
     public $timestamps = false;
 
+
     function trim($item){
         $trimmed = !empty($item) ? trim($item) : null;
         return $trimmed;
     }
-
+//TODO: check if email already exists in db
     public function valid($em){
         if (!filter_var($em, FILTER_VALIDATE_EMAIL)){ 
             echo "Invalid email format";
