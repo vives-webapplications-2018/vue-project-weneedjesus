@@ -5,7 +5,8 @@ use App\Models\Kaffie;
 use App\Connect\connect;
 
 //http://thisinterestsme.com/php-user-registration-form/
-class register {
+class Register {
+    
 
     function __construct($em, $pw, $cpw, $name, $lastname, $addr, $zip, $city/*, $owner*/){
         $this->em = $em;
