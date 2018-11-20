@@ -4,15 +4,14 @@
         <meta charset="utf-8"/>
         <title>Kaffie</title>
         <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <h1>Kaffie</h1>
+        <h1 style="margin-top:0">Kaffie</h1>
 
         <div class="form"> 
             <div class="row">
@@ -46,6 +45,7 @@
                     <i class="material-icons prefix">email</i>
                     <input id="email" name="email" type="email" class="validate">
                     <label for="email">E-mail</label>
+                    <span class="helper-text" data-error="Invalid e-mail!" data-success="Valid e-mail."></span>
                     </div>
                 </div>
                 <div class="row">
