@@ -21,8 +21,8 @@ $app->post('/login', function (Request $request, Response $response, array $args
 
     if($user->valid($request->getParam('email'))) {
         $user->email = $request->getParam('email');
-    }else {
     }
+    
     $user->password = $user->validPw($request->getParam('password'), $request->getParam('confirmpassword'));
     $user->lastname = $request->getParam('last_name');
     $user->firstname = $request->getParam('first_name');
