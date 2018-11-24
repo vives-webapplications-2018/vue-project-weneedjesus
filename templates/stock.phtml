@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8"/>
+    <meta charset="utf-8"/>
         <title>Kaffie</title>
         <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
@@ -9,16 +9,31 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <link rel="stylesheet" href="css/style.css">
-        <style>
-        h1{
-            margin-bottom:5%;
-            margin-top:15%;
-        }
-        </style>
     </head>
-    <body>
-        <h1>Kaffie</h1>
-        <a  href="/register" class="waves-effect waves-light btn-large"><i class="material-icons right">person_add</i>Register</a>
-        <a  href="/login" class="waves-effect waves-light btn-large"><i class="material-icons right">lock_open</i>Login</a>
+       
+        <body>
+
+        <?php 
+
+        use \App\Models\Product;
+//        use \App\Listcreator\NewList;
+
+        $products = Product::all();
+        
+        foreach($products as $product){
+            $productId = $product->id;
+            $productName = $product->name;
+            $productQuantity = $product->quantity;
+
+            echo $productId . ". " . $productName;
+        }
+
+
+        
+
+    ?>
+        <div class="row">
+        <a href="" class="btn waves-effect waves-light btn-large">Add product<i class="material-icons right">send</i></a>
+        </div>
     </body>
 </html>

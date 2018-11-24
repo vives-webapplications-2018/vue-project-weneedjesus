@@ -4,71 +4,85 @@
         <meta charset="utf-8"/>
         <title>Kaffie</title>
         <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <h1>Kaffie</h1>
+        <h1 style="margin-top:0">Kaffie</h1>
 
-    <form class="col s6 offset-s3">
-        <div class="form">
-            <div class="row">       
+        <div class="form"> 
+            <div class="row">
+                <form class="col s6 offset-s3" method="POST" action="/login">
                 <div class="row">
                     <div class="input-field col s6">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="first_name" type="text" class="validate">
+                    <input id="first_name" name="first_name" type="text" class="validate">
                     <label for="first_name">First Name</label>
                     </div>
                     <div class="input-field col s6">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="last_name" type="text" class="validate">
+                    <input id="last_name" name="last_name" type="text"  class="validate">
                     <label for="last_name">Last Name</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
                     <i class="material-icons prefix">lock</i>
-                    <input id="password" type="password" class="validate">
+                    <input id="password" name="password" type="password" class="validate">
                     <label for="password">Password</label>
                     </div>
                     <div class="input-field col s6">
                     <i class="material-icons prefix">lock</i>
-                    <input id="confirmpassword" type="password" class="validate">
+                    <input id="confirmpassword" name="confirmpassword" type="password" class="validate">
                     <label for="confirmpassword">Confirm Password</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
                     <i class="material-icons prefix">email</i>
-                    <input id="email" type="email" class="validate">
+                    <input id="email" name="email" type="email" class="validate">
                     <label for="email">E-mail</label>
+                    <span class="helper-text" data-error="Invalid e-mail!" data-success="Valid e-mail."></span>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
                     <i class="material-icons prefix">markunread_mailbox</i>
-                    <input id="address" type="text" class="validate">
+                    <input id="address" name="address" type="text" class="validate">
                     <label for="email">Address</label>
                     </div>
                     <div class="input-field col s3">
                     <i class="material-icons prefix">markunread_mailbox</i>
-                    <input id="zip" type="text" class="validate">
+                    <input id="zip" name="zip" type="text" class="validate">
                     <label for="zip">Zip</label>
                     </div>
                     <div class="input-field col s3">
                     <i class="material-icons prefix">location_city</i>
-                    <input id="city" type="text" class="validate">
+                    <input id="city" name="city" type="text" class="validate">
                     <label for="city">City</label>
                     </div>
+<<<<<<< HEAD
                 </div> 
             </div>
         </div>
         <a  href="/" class="waves-effect waves-light btn-large"><i class="material-icons right">exit_to_app</i>Back</a>
         <button class="btn waves-effect waves-light btn-large" type="submit" name="action">Submit<i class="material-icons right">send</i></button>
     </form>
+=======
+                <div class="row">
+                    <a  href="/" class="waves-effect waves-light btn-large"><i class="material-icons right">exit_to_app</i>Back</a>
+                    <button class="btn waves-effect waves-light btn-large" type="submit" name="action">Submit<i class="material-icons right">send</i></button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+
+        
+        
+>>>>>>> c1d733f8872a9447712737ba0ffe07d5a100dca7
     </body>
 </html>

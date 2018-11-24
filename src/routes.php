@@ -3,7 +3,8 @@
 use Slim\Http\Request;
 use Slim\Http\Response;
 use App\Models\Kaffie;
-use App\checkValid;
+use App\Models\User;
+use App\Connect\Register;
 
 // Routes for main page
 $app->get('/', function (Request $request, Response $response, array $args) {
@@ -15,39 +16,30 @@ $app->get('/index', function (Request $request, Response $response, array $args)
 });
 
 //Routes for forms (users)
-$app->post('/register', function (Request $request, Response $response, array $args) {
-    $user = new Kaffie();
-    $array = array(
-        //TODO: make an array here with key => value and then make the
-        //foreach loop + also check for $args
-    );
-    //repetitive code, at a later time it will be implemented as an array
-    $user::table('users')->name = $_POST['name'];
-    $user::table('users')->lastname = $_POST['lastname'];
-    /*We need to check the validation + if already exist in db 
-    We will use other class checkValid*/
-
-    $user::table('users')->email = $_POST['email'];
-    $hash = password_hash($_POST['password'], PASSWORD_DEFAULT).
-    $user::table('users')->password = $hash;
-    /**/
-    $user::table('users')->address = $_POST['address'];
-    $user::table('users')->zip = $_POST['zip'];
-    $user::table('users')->city = $_POST['city'];
-    $user::table('users')->owner = $_POST['owner'];
-
-    //TODO: needs to direct to a page where customers can be added and be overviewed.
-    return $this->renderer->render($response, 'overview.phtml', $args);
-});
-
 $app->post('/login', function (Request $request, Response $response, array $args) {
-    //also class checkValid will be used here
-    $userLogin = $_POST['email'];
+    $user = new User();
+
+    if($user->valid($request->getParam('email'))) {
+        $user->email = $request->getParam('email');
+    }
+    
+    $user->password = $user->validPw($request->getParam('password'), $request->getParam('confirmpassword'));
+    $user->lastname = $request->getParam('last_name');
+    $user->firstname = $request->getParam('first_name');
+    $user->address = $request->getParam('address');
+    $user->zip = $request->getParam('zip');
+    $user->city = $request->getParam('city');
+
+    $user->save();
+
+    return $this->renderer->render($response, 'login.phtml', $args);
+});
+
+$app->post('/overview', function (Request $request, Response $response, array $args) {
+    $args['email'] = $request->getParam('email');
 
     return $this->renderer->render($response, 'overview.phtml', $args);
 });
-
-
 
 //Routes with overview and other things that could be useful
 $app->get('/login', function (Request $request, Response $response, array $args) {
@@ -57,8 +49,19 @@ $app->get('/login', function (Request $request, Response $response, array $args)
 $app->get('/register', function (Request $request, Response $response, array $args) {
     return $this->renderer->render($response, 'register.phtml', $args);
 });
+
 $app->get('/customer', function (Request $request, Response $response, array $args) {
     return $this->renderer->render($response, 'customer.phtml', $args);
 });
+
+$app->get('/stock', function (Request $request, Response $response, array $args) {
+    return $this->renderer->render($response, 'stock.phtml', $args);
+});
+
+$app->get('/overview', function (Request $request, Response $response, array $args) {
+    return $this->renderer->render($response, 'overview.phtml', $args);
+});
+
+
 
 
