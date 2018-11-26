@@ -37,16 +37,14 @@ $app->post('/login', function (Request $request, Response $response, array $args
 
 $app->post('/overview', function (Request $request, Response $response, array $args) {
     $loginUser = new User();
-    $user = User::where('email', '=', $request->getParam('email'))->first();
-    if(Hash::check($request->getParam('password'), $user->password)){
-        echo "Logged in!";
+    //$user = User::where('email', '=', $request->getParam('email'))->first();
+    //if(Hash::check($request->getParam('password'), $user->password)){
+       // echo "Logged in!";
         $args['email'] = $request->getParam('email');
-    }else{
-        exit();
-    }
+   // }else{
+       // exit();
+    //}
     
-
-
     return $this->renderer->render($response, 'overview.phtml', $args);
 });
 
