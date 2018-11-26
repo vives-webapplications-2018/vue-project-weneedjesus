@@ -62,6 +62,10 @@ $app->get('/overview', function (Request $request, Response $response, array $ar
     return $this->renderer->render($response, 'overview.phtml', $args);
 });
 
+$app->get('/add', function (Request $request, Response $response, array $args) {
+    return $this->renderer->render($response, 'add.phtml', $args);
+});
+
 
 
 
