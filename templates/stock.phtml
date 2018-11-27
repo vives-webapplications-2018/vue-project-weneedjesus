@@ -13,18 +13,8 @@
         <script src="/js/app.js"></script>
     </head>       
         <body>
+        HELLO <? $productid ?>
 
-    <?php 
-        use \App\Models\Product;
-        $products = Product::all();    
-        foreach($products as $product){
-            $productId = $product->id;
-            $productName = $product->name;
-            $productQuantity = $product->quantity;
-            echo $productId . ". " . $productName;
-        }
-    ?>
-    
         <div class="row">
         <a href="/add" class="btn waves-effect waves-light btn-large">Add product<i class="material-icons right">send</i></a>
         </div>
