@@ -22,7 +22,7 @@ $app->post('/login', function (Request $request, Response $response, array $args
         $user->email = $request->getParam('email');
     }else{
         $this->flash->addMessage('Test', 'This is a message');
-        return $this->renderer->render($response, 'index.phtml', $args);
+        return $this->renderer->render($response, 'register.phtml', $args);
     }
 
     $user->password = $user->validPw($request->getParam('password'), $request->getParam('confirmpassword'));
