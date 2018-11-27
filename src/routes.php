@@ -57,6 +57,12 @@ $app->post('/overview', function (Request $request, Response $response, array $a
     }  
 });
 
+//Add routes from add.html
+$app->put('/index', function (Request $request, Response $response, array $args) {
+    return $this->renderer->render($response, 'index.phtml', $args);
+});
+
+
 //Routes with overview and other things that could be useful
 $app->get('/login', function (Request $request, Response $response, array $args) {
     return $this->renderer->render($response, 'login.phtml', $args);
