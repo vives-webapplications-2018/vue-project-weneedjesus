@@ -39,7 +39,7 @@ class User extends Model
     public function validPw($pw, $cpw)
     {
         if ($pw == $cpw) {
-            return md5($pw);
+            return password_hash($pw, PASSWORD_BCRYPT);
         }
         return "Passwords don't match!";
     }
