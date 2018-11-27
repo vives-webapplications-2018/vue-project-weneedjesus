@@ -25,8 +25,13 @@ $app->post('/login', function (Request $request, Response $response, array $args
         return $this->renderer->render($response, 'register.phtml', $args);
     }
 
-    //TODO: if passwords don't match, we need to redirect to register to verify
-    $user->password = $user->validPw($request->getParam('password'), $request->getParam('confirmpassword'));
+    //TODO: Need to do for other fields aswell
+    if(!$request->getParam('password') == null && !$request->getParam('confirmpassword') == null) {
+        $user->password = $user->validPw($request->getParam('password'), $request->getParam('confirmpassword'));
+    }else{
+        $this->flash->addMessage('Test', 'This is a message');
+        return $this->renderer->render($response, 'register.phtml', $args);}
+  
     $user->lastname = $request->getParam('last_name');
     $user->firstname = $request->getParam('first_name');
     $user->address = $request->getParam('address');
