@@ -12,21 +12,15 @@
         <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    HELLO <?= $email ?>
-    <div class="row">
-    <a  href="/stock" class="waves-effect waves-light btn-large"><i class="material-icons right">account_circle</i>My profile</a>
-    </div>
-    <div class="row">
-    <a  href="/stock" class="waves-effect waves-light btn-large disabled"><i class="material-icons right">contacts</i>Staff</a>
-    </div>
-    <div class="row">
-    <a  href="/stock" class="waves-effect waves-light btn-large"><i class="material-icons right">group</i>Customers</a>
-    </div>
-    <div class="row">
-    <a  href="/stock" class="waves-effect waves-light btn-large"><i class="material-icons right">format_list_bulleted</i>Stock</a>
-    </div>
+    <h4>Welcome <?= $firstname ?> </h4>
+    <br>
+    <br>
     <div class="row">
     <a  href="/login" class="waves-effect waves-light btn-large"><i class="material-icons right">exit_to_app</i>Back</a>
+    <a  href="/profile" class="waves-effect waves-light btn-large disabled"><i class="material-icons right">account_circle</i>My profile</a>
+    <a  href="/staff" class="waves-effect waves-light btn-large disabled"><i class="material-icons right">contacts</i>Staff</a>
+    <a  href="/customers" class="waves-effect waves-light btn-large disabled"><i class="material-icons right">group</i>Customers</a>
+    <a  href="/stock" class="waves-effect waves-light btn-large"><i class="material-icons right">format_list_bulleted</i>Stock</a>
     </div>
 </body>
 </html>
