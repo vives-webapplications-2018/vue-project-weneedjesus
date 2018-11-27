@@ -18,13 +18,14 @@ $app->get('/index', function (Request $request, Response $response, array $args)
 $app->post('/login', function (Request $request, Response $response, array $args) {
     $user = new User();
 
-    if ($user->valid($request->getParam('email'))) {
+    if ($user->valid($request->getParam('email')) ) {
         $user->email = $request->getParam('email');
     }else{
         $this->flash->addMessage('Test', 'This is a message');
         return $this->renderer->render($response, 'register.phtml', $args);
     }
 
+    //TODO: if passwords don't match, we need to redirect to register to verify
     $user->password = $user->validPw($request->getParam('password'), $request->getParam('confirmpassword'));
     $user->lastname = $request->getParam('last_name');
     $user->firstname = $request->getParam('first_name');
