@@ -62,14 +62,8 @@ $app->get('/customer', function (Request $request, Response $response, array $ar
 });
 
 $app->get('/stock', function (Request $request, Response $response, array $args) {
-
     $products = Product::all();
-    foreach ($products as $product) {
-       $args['productid'] = $product->id;
-       $args['productName'] = $product->name;
-       $args['productQuantity'] = $product->quantity;
-    }
-
+    $args['products'] = $products;
     return $this->renderer->render($response, 'stock.phtml', $args);
 });
 
