@@ -20,6 +20,9 @@ $app->post('/login', function (Request $request, Response $response, array $args
 
     if ($user->valid($request->getParam('email'))) {
         $user->email = $request->getParam('email');
+    }else{
+        $this->flash->addMessage('Test', 'This is a message');
+        return $this->renderer->render($response, 'index.phtml', $args);
     }
 
     $user->password = $user->validPw($request->getParam('password'), $request->getParam('confirmpassword'));
@@ -35,17 +38,16 @@ $app->post('/login', function (Request $request, Response $response, array $args
 });
 
 $app->post('/overview', function (Request $request, Response $response, array $args) {
-    $loginUser = new User();
-    $user = User::where('email', '=', $request->getParam('email'))->first();
-    if (password_verify($request->getParam('email'), $user->password)) {
+
+    $loginUser = User::where('email', '=', $request->getParam('email'))->first();
+    if (password_verify($request->getParam('password'), $loginUser->password)) {
         echo "Logged in!";
         $args['email'] = $request->getParam('email');
+        return $this->renderer->render($response, 'overview.phtml', $args);
     } else {
         $this->flash->addMessage('Test', 'This is a message');
-        $response->withRedirect('/index', $status = null);
-    }
-
-    return $this->renderer->render($response, 'overview.phtml', $args);
+        return $this->renderer->render($response, 'index.phtml', $args);
+    }  
 });
 
 //Routes with overview and other things that could be useful
@@ -62,14 +64,8 @@ $app->get('/customer', function (Request $request, Response $response, array $ar
 });
 
 $app->get('/stock', function (Request $request, Response $response, array $args) {
-
     $products = Product::all();
-    foreach ($products as $product) {
-       $args['productid'] = $product->id;
-       $args['productName'] = $product->name;
-       $args['productQuantity'] = $product->quantity;
-    }
-
+    $args['products'] = $products;
     return $this->renderer->render($response, 'stock.phtml', $args);
 });
 

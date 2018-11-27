@@ -26,3 +26,7 @@ $capsule->bootEloquent();
 $container['db'] = function($container) {
     return $capsule;
 };
+//Register provider
+$container['flash'] = function () {
+    return new \Slim\Flash\Messages();
+};
