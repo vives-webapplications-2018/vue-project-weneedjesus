@@ -43,6 +43,7 @@ $app->post('/overview', function (Request $request, Response $response, array $a
     if (password_verify($request->getParam('password'), $loginUser->password)) {
         echo "Logged in!";
         $args['email'] = $request->getParam('email');
+        $args['firstname'] = $loginUser->firstname;
         return $this->renderer->render($response, 'overview.phtml', $args);
     } else {
         $this->flash->addMessage('Test', 'This is a message');
