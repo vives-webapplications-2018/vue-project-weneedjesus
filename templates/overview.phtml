@@ -13,15 +13,23 @@
 </head>
 <body>
     <?php
-    if (isset($firstname))
-    {
-        echo "<h4>Welcome $firstname!</h4>";
+    if (isset($_SESSION['authorized']) && $_SESSION['authorized'] === TRUE) {
+        // Alright, let's show all the hidden functionality!
+        if (isset($firstname))
+        {
+            echo "<h4>Welcome $firstname!</h4>";
+        }
+        else
+        {
+            echo "Welcome!";
+        }
+        
+    } else {
+        // User is not authorized!
+        header('Location: login.php');
+        exit();
     }
-    else
-    {
-        echo "Welcome!";
-    }
-    
+   
     ?>
     <br>
     <br>

@@ -48,6 +48,7 @@ $app->post('/overview', function (Request $request, Response $response, array $a
     $loginUser = User::where('email', '=', $request->getParam('email'))->first();
     if (password_verify($request->getParam('password'), $loginUser->password)) {
         echo "Logged in!";
+        $_SESSION['authorized'] = TRUE;
         $args['email'] = $request->getParam('email');
         $args['firstname'] = $loginUser->firstname;
         return $this->renderer->render($response, 'overview.phtml', $args);
@@ -72,20 +73,14 @@ $app->get('/register', function (Request $request, Response $response, array $ar
     return $this->renderer->render($response, 'register.phtml', $args);
 });
 
-$app->get('/customer', function (Request $request, Response $response, array $args) {
-    return $this->renderer->render($response, 'customer.phtml', $args);
+$app->get('/customers', function (Request $request, Response $response, array $args) {
+    return $this->renderer->render($response, 'customers.phtml', $args);
 });
 
 $app->get('/stock', function (Request $request, Response $response, array $args) {
     $products = Product::all();
     $args['products'] = $products;
     return $this->renderer->render($response, 'stock.phtml', $args);
-});
-
-$app->get('/customers', function (Request $request, Response $response, array $args) {
-    $users = User::all();
-    $args['users'] = $users;
-    return $this->renderer->render($response, 'customers.phtml', $args);
 });
 
 $app->get('/overview', function (Request $request, Response $response, array $args) {
