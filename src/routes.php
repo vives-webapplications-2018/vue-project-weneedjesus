@@ -59,8 +59,8 @@ $app->post('/overview', function (Request $request, Response $response, array $a
 });
 
 //Add routes from add.html
-$app->put('/index', function (Request $request, Response $response, array $args) {
-    return $this->renderer->render($response, 'index.phtml', $args);
+$app->post('/add', function (Request $request, Response $response, array $args) {
+    return $this->renderer->render($response, 'stock.phtml', $args);
 });
 
 
