@@ -82,6 +82,12 @@ $app->get('/stock', function (Request $request, Response $response, array $args)
     return $this->renderer->render($response, 'stock.phtml', $args);
 });
 
+$app->get('/customers', function (Request $request, Response $response, array $args) {
+    $users = User::all();
+    $args['users'] = $users;
+    return $this->renderer->render($response, 'customers.phtml', $args);
+});
+
 $app->get('/overview', function (Request $request, Response $response, array $args) {
     return $this->renderer->render($response, 'overview.phtml', $args);
 });
