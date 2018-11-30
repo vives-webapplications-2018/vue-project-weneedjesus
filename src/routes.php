@@ -74,6 +74,8 @@ $app->get('/register', function (Request $request, Response $response, array $ar
 });
 
 $app->get('/customers', function (Request $request, Response $response, array $args) {
+    $users = User::all();
+    $args['users'] = $users;
     return $this->renderer->render($response, 'customers.phtml', $args);
 });
 
