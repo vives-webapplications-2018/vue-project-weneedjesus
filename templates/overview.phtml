@@ -12,7 +12,17 @@
         <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h4>Welcome <?= $firstname ?> </h4>
+    <?php
+    if (isset($firstname))
+    {
+        echo "Welcome $firstname!";
+    }
+    else
+    {
+        echo "Welcome!";
+    }
+    
+    ?>
     <br>
     <br>
     <div class="row">
