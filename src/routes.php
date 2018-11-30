@@ -60,6 +60,14 @@ $app->post('/overview', function (Request $request, Response $response, array $a
 
 //Add routes from add.html
 $app->post('/add', function (Request $request, Response $response, array $args) {
+    $product = new Product();
+    
+    $product->name = $request->getParam('name');
+    $product->price = $request->getParam('price');
+    $product->quantity = $request->getParam('quantity');
+    $product->description = $request->getParam('description');
+    $product->save();
+
     return $this->renderer->render($response, 'stock.phtml', $args);
 });
 
