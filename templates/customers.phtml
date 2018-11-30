@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8"/>
+        <title>Kaffie</title>
+        <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+        <link rel="icon" href="/favicon/kaffie_logo.png" type="image/png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="/js/app.js"></script>
+    </head>       
+    <body>
+    <?php
+        foreach ($users as $user)
+        {
+            echo "<p>$user->firstname: $user->lastname<br></p>";
+        }
+    ?>
+        <br>
+        <div class="row">
+            <a  href="/overview" class="waves-effect waves-light btn-large"><i class="material-icons right">exit_to_app</i>Back</a>
+        <a href="/add" class="btn waves-effect waves-light btn-large"><i class="material-icons right">add</i>Add product</a>
+        </div>
+    </body>
+</html>
