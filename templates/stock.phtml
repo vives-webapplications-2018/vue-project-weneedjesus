@@ -15,6 +15,8 @@
         <body>
         
         <?php
+        use \App\Models\Product;
+        $products = Product::all();
         foreach ($products as $product)
         {
             echo "<p>$product->id.$product->name, amount in stock: $product->quantity<br></p>";
