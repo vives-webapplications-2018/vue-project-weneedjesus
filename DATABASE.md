@@ -54,12 +54,12 @@ CREATE TABLE customers(
  id int NOT NULL AUTO_INCREMENT, 
  firstname VARCHAR(64) NOT NULL, 
  lastname VARCHAR(64) NOT NULL, 
- birthday int NOT NULL; 
+ birthday VARCHAR(3) NOT NULL; 
 PRIMARY KEY (id) 
  );  
 
 INSERT INTO customers (firstname, lastname, birthday) VALUES 
- ('firstname1', 'lastname1', 18);
+ ('firstname1', 'lastname1', '14');
 
 SELECT * FROM customers;  
 ```
