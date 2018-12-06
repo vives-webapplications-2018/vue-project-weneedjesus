@@ -54,7 +54,7 @@ CREATE TABLE customers(
  id int NOT NULL AUTO_INCREMENT, 
  firstname VARCHAR(64) NOT NULL, 
  lastname VARCHAR(64) NOT NULL, 
- birthday VARCHAR(12) NOT NULL; 
+ birthday VARCHAR(12) NOT NULL,
 PRIMARY KEY (id) 
  );  
 
