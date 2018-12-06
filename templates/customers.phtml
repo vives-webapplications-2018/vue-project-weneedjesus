@@ -15,9 +15,9 @@
     <body>
     <?php
     if (isset($_SESSION['authorized']) && $_SESSION['authorized'] === TRUE) {
-        foreach ($users as $user)
+        foreach ($customers as $customer)
         {
-            echo "<p>$user->firstname: $user->lastname<br></p>";
+            echo "<p>$customer->firstname: $customer->lastname<br></p>";
         }
     } else {
         exit();

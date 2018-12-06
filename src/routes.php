@@ -4,6 +4,7 @@ use App\Models\User;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use \App\Models\Product;
+use \App\Models\Customer;
 
 // Routes for main page
 $app->get('/', function (Request $request, Response $response, array $args) {
@@ -82,8 +83,8 @@ $app->get('/register', function (Request $request, Response $response, array $ar
 });
 
 $app->get('/customers', function (Request $request, Response $response, array $args) {
-    $users = User::all();
-    $args['users'] = $users;
+    $customers = Customer::all();
+    $args['customers'] = $customers;
     return $this->renderer->render($response, 'customers.phtml', $args);
 });
 
