@@ -39,7 +39,7 @@ CREATE TABLE products(
  );  
 
 INSERT INTO products (name, price, quantity, description) VALUES 
- ('Jupiler', '2,20' , '125', 'beer');
+ ('Jupiler', 2,20 , 125, 'beer');
 
 
 SELECT * FROM products;
@@ -54,11 +54,12 @@ CREATE TABLE customers(
  id int NOT NULL AUTO_INCREMENT, 
  firstname VARCHAR(64) NOT NULL, 
  lastname VARCHAR(64) NOT NULL, 
+ birthday int NOT NULL; 
 PRIMARY KEY (id) 
  );  
 
-INSERT INTO customers (firstname, lastname) VALUES 
- ('firstname1', 'lastname1');
+INSERT INTO customers (firstname, lastname, birthday) VALUES 
+ ('firstname1', 'lastname1', 18);
 
 SELECT * FROM customers;  
 ```
