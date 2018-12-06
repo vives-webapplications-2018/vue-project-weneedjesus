@@ -44,3 +44,21 @@ INSERT INTO products (name, price, quantity, description) VALUES
 
 SELECT * FROM products;
 ```
+
+**Customers**
+
+```sql
+CREATE DATABASE kaffie; 
+USE kaffie; 
+CREATE TABLE customers( 
+ id int NOT NULL AUTO_INCREMENT, 
+ firstname VARCHAR(64) NOT NULL, 
+ lastname VARCHAR(64) NOT NULL, 
+PRIMARY KEY (id) 
+ );  
+
+INSERT INTO customers (firstname, lastname) VALUES 
+ ('firstname1', 'lastname1');
+
+SELECT * FROM customers;  
+```
