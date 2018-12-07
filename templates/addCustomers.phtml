@@ -16,8 +16,26 @@
 <body>
 <div class="row">
         <h1>Kaffie</h1>
-        <form method="POST" action="/add">
+        <form method="POST" action="/addCustomers">
         
+        <div class="row">
+        <div class="input-field col s2 offset-s4">
+          <i class="material-icons prefix"></i>
+          <input type="text" id="autocomplete-input" class="autocomplete" name="firstname">
+          <label for="autocomplete-input">Firstname</label>
+        </div>
+        <div class="input-field col s1">
+          <i class="material-icons prefix"></i>
+          <input type="text" id="autocomplete-input" class="autocomplete" name="lastname">
+          <label for="autocomplete-input">Lastname</label>
+        </div>
+        <div class="input-field col s1">
+          <i class="material-icons prefix"></i>
+          <input type="text" id="autocomplete-input" class="autocomplete" name="birthday">
+          <label for="autocomplete-input">Birthday</label>
+        </div>
+        </div>
+
         </form>
 </div>
 </body>
