@@ -35,6 +35,12 @@
     "scripts": {
         "start": "php -S localhost:8080 -t public",
         "test": "phpunit"
-    }
+    },
+    "repositories": [
+        {
+                    "type": "vcs",
+                    "url":  "git@github.com:vives-webapplications-2018/htmllib-JensVercruysse.git"
+                }
+            ]
 
 }
