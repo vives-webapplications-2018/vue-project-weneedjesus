@@ -92,6 +92,10 @@ $app->get('/login', function (Request $request, Response $response, array $args)
     return $this->renderer->render($response, 'login.phtml', $args);
 });
 
+$app->get('/addCustomers', function (Request $request, Response $response, array $args) {
+    return $this->renderer->render($response, 'addCustomers.phtml', $args);
+});
+
 $app->get('/register', function (Request $request, Response $response, array $args) {
     return $this->renderer->render($response, 'register.phtml', $args);
 });
