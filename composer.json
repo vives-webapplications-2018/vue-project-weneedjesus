@@ -18,7 +18,8 @@
         "monolog/monolog": "^1.17",
         "illuminate/database": "~5.1",
         "slim/flash": "^0.4.0",
-        "bryanjhv/slim-session": "~3.0"
+        "bryanjhv/slim-session": "~3.0",
+        "JensVercruysse/html-elements-oef": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": ">=4.8 < 6.0"
