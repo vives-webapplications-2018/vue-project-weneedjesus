@@ -4,8 +4,38 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc443c5ed5d33a9c9a1a18cc63038d88",
+    "content-hash": "c19a28e31c266e4c9c33cff2fc94e8df",
     "packages": [
+        {
+            "name": "JensVercruysse/html-elements-oef",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:vives-webapplications-2018/htmllib-JensVercruysse.git",
+                "reference": "ae8d181f555f9a1b10fd998c6c0ec3c63c64097a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vives-webapplications-2018/htmllib-JensVercruysse/zipball/ae8d181f555f9a1b10fd998c6c0ec3c63c64097a",
+                "reference": "ae8d181f555f9a1b10fd998c6c0ec3c63c64097a",
+                "shasum": ""
+            },
+            "require": {
+                "vlucas/phpdotenv": "^2.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "JensVercruysse\\": "lib/"
+                }
+            },
+            "description": "htmlelements demo",
+            "support": {
+                "source": "https://github.com/vives-webapplications-2018/htmllib-JensVercruysse/tree/master",
+                "issues": "https://github.com/vives-webapplications-2018/htmllib-JensVercruysse/issues"
+            },
+            "time": "2018-11-27T11:22:35+00:00"
+        },
         {
             "name": "bryanjhv/slim-session",
             "version": "3.6.1",
@@ -1153,6 +1183,56 @@
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
             "time": "2018-12-06T10:45:32+00:00"
+        },
+        {
+            "name": "vlucas/phpdotenv",
+            "version": "v2.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vlucas/phpdotenv.git",
+                "reference": "8abb4f9aa89ddea9d52112c65bbe8d0125e2fa8e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/8abb4f9aa89ddea9d52112c65bbe8d0125e2fa8e",
+                "reference": "8abb4f9aa89ddea9d52112c65bbe8d0125e2fa8e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35 || ^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dotenv\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Vance Lucas",
+                    "email": "vance@vancelucas.com",
+                    "homepage": "http://www.vancelucas.com"
+                }
+            ],
+            "description": "Loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically.",
+            "keywords": [
+                "dotenv",
+                "env",
+                "environment"
+            ],
+            "time": "2018-07-29T20:33:41+00:00"
         }
     ],
     "packages-dev": [
@@ -2546,7 +2626,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "jensvercruysse/html-elements-oef": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
