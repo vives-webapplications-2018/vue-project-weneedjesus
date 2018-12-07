@@ -4,9 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Kaffie</title>
+    <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="icon" href="/favicon/kaffie_logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="/js/app.js"></script>
 </head>
 <body>
-    
+<div class="row">
+        <h1>Kaffie</h1>
+        <form method="POST" action="/addCustomers">
+        
+        <div class="row">
+        <div class="input-field col s2 offset-s4">
+          <i class="material-icons prefix">account_circle</i>
+          <input type="text" id="autocomplete-input" class="autocomplete" name="firstname">
+          <label for="autocomplete-input">First Name</label>
+        </div>
+        <div class="input-field col s2">
+          <i class="material-icons prefix">account_circle</i>
+          <input type="text" id="autocomplete-input" class="autocomplete" name="lastname">
+          <label for="autocomplete-input">Last Name</label>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="input-field col s4 offset-s4">
+          <i class="material-icons prefix">date_range</i>
+          <input type="text" id="autocomplete-input" class="datepicker" name="birthday">
+          <label for="autocomplete-input">Birthday</label>
+        </div>
+        </div>
+
+        <br>
+      
+        <div class="row">
+                <a  href="/customers" class="waves-effect waves-light btn-large"><i class="material-icons right">arrow_back</i>Back</a>
+                <button class="btn waves-effect waves-light btn-large" type="submit" name="action">Add customer<i class="material-icons right">add</i></button>     
+        </div>
+        </form>
+
 </body>
 </html>
