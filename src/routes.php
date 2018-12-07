@@ -72,13 +72,13 @@ $app->post('/add', function (Request $request, Response $response, array $args) 
 });
 
 $app->post('/addCustomers', function (Request $request, Response $response, array $args) {
-    $customer = new Customer();
+    $customer = new Customer(); 
     $customer->firstname = $request->getParam('firstname');
     $customer->lastname = $request->getParam('lastname');
     $customer->birthday = $request->getParam('birthday');
     $customer->save();
 
-    return $this->renderer->render($response, 'customers.phtml', $args);
+    return $response->withRedirect('/customers', $status = null);
 });
 
 //Routes with overview and other things that could be useful
