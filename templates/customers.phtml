@@ -14,14 +14,12 @@
     </head>       
     <body>
     <?php
-    if (isset($_SESSION['authorized']) && $_SESSION['authorized'] === TRUE) {
+    
         foreach ($customers as $customer)
         {
             echo "<p>$customer->firstname: $customer->lastname<br></p>";
         }
-    } else {
-        exit();
-    }
+    
        
     ?>
         <br>

@@ -27,7 +27,7 @@ $app->post('/register', function (Request $request, Response $response, array $a
     }
 
     //TODO: Need to do for other fields aswell
-    if(!$request->getParam('password') == null && !$request->getParam('confirmpassword') == null) {
+    if(!$request->getParam('password') == null && !$request->getParam('confirmpassword') == null) { //TODO: register fields can't be empty pls fix
         $user->password = $user->validPw($request->getParam('password'), $request->getParam('confirmpassword'));
     }else{
         $this->flash->addMessage('Test', 'This is a message');
@@ -45,10 +45,6 @@ $app->post('/register', function (Request $request, Response $response, array $a
 });
 
 $app->post('/login', function (Request $request, Response $response, array $args) {
-    // if($this->user) {
-    //     $args['user'] = $user;
-    //     return $this->renderer->render($response, 'overview.phtml', $args);
-    // }
     $loginUser = User::where('email', '=', $request->getParam('email'))->first();
     if (password_verify($request->getParam('password'), $loginUser->password)) {
        $this->session->set('user_id', $loginUser->id);
@@ -58,7 +54,7 @@ $app->post('/login', function (Request $request, Response $response, array $args
         // return $this->renderer->render($response, 'overview.phtml', $args);
     } else {
         $this->flash->addMessage('Test', 'This is a message');
-        return $this->renderer->render($response, 'index.phtml', $args);
+        return $response->withRedirect('/index', $status = null);
     }  
 });
 
