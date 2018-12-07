@@ -4,8 +4,38 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8a5140f70dd33b98bf158bc611bb1965",
+    "content-hash": "7e023fcea1bb5639155a7ae18bd15aa7",
     "packages": [
+        {
+            "name": "JensVercruysse/repositoryGenerator",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JensVercruysse/repositoryGenerator.git",
+                "reference": "2d613f18018afafb723cac3d640c9dfb83b471c5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JensVercruysse/repositoryGenerator/zipball/2d613f18018afafb723cac3d640c9dfb83b471c5",
+                "reference": "2d613f18018afafb723cac3d640c9dfb83b471c5",
+                "shasum": ""
+            },
+            "require": {
+                "vlucas/phpdotenv": "^2.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "JensVercruysse\\": "lib/"
+                }
+            },
+            "description": "simpel repo generator",
+            "support": {
+                "source": "https://github.com/JensVercruysse/repositoryGenerator/tree/master",
+                "issues": "https://github.com/JensVercruysse/repositoryGenerator/issues"
+            },
+            "time": "2018-12-07T14:47:41+00:00"
+        },
         {
             "name": "bryanjhv/slim-session",
             "version": "3.6.1",
@@ -1153,6 +1183,56 @@
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
             "time": "2018-12-06T10:45:32+00:00"
+        },
+        {
+            "name": "vlucas/phpdotenv",
+            "version": "v2.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vlucas/phpdotenv.git",
+                "reference": "8abb4f9aa89ddea9d52112c65bbe8d0125e2fa8e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/8abb4f9aa89ddea9d52112c65bbe8d0125e2fa8e",
+                "reference": "8abb4f9aa89ddea9d52112c65bbe8d0125e2fa8e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35 || ^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dotenv\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Vance Lucas",
+                    "email": "vance@vancelucas.com",
+                    "homepage": "http://www.vancelucas.com"
+                }
+            ],
+            "description": "Loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically.",
+            "keywords": [
+                "dotenv",
+                "env",
+                "environment"
+            ],
+            "time": "2018-07-29T20:33:41+00:00"
         }
     ],
     "packages-dev": [
@@ -2546,7 +2626,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "jensvercruysse/repositorygenerator": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
