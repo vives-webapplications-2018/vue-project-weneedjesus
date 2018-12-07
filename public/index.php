@@ -25,11 +25,12 @@ require __DIR__ . '/../src/middleware.php';
 
 // Register routes
 require __DIR__ . '/../src/routes.php';
-// $app->add(new \Slim\Middleware\Session([ //need to check this
-//     'name' => 'dummy_session',
-//     'autorefresh' => true,
-//     'lifetime' => '1 hour'
-//   ]));
+
+$app->add(new \Slim\Middleware\Session([ //need to check this
+    'name' => 'dummy_session',
+    'autorefresh' => true,
+    'lifetime' => '1 hour'
+  ]));
 
 // Run app
 $app->run();
