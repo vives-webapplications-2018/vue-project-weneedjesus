@@ -18,7 +18,8 @@
         "monolog/monolog": "^1.17",
         "illuminate/database": "~5.1",
         "slim/flash": "^0.4.0",
-        "bryanjhv/slim-session": "~3.0"
+        "bryanjhv/slim-session": "~3.0",
+        "JensVercruysse/repositoryGenerator": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": ">=4.8 < 6.0"
@@ -35,6 +36,12 @@
     "scripts": {
         "start": "php -S localhost:8080 -t public",
         "test": "phpunit"
-    }
+    },
+    "repositories": [
+        {
+                    "type": "vcs",
+                    "url":  "git@github.com:JensVercruysse/repositoryGenerator.git"
+                }
+            ]
 
 }
