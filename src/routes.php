@@ -48,8 +48,9 @@ $app->post('/overview', function (Request $request, Response $response, array $a
 
     $loginUser = User::where('email', '=', $request->getParam('email'))->first();
     if (password_verify($request->getParam('password'), $loginUser->password)) {
-        echo "Logged in!";
+       // echo "Logged in!";
         $_SESSION['authorized'] = TRUE;
+        $_SESSION['user_id'] = $loginUser->id;
         $args['email'] = $request->getParam('email');
         $args['firstname'] = $loginUser->firstname;
         return $this->renderer->render($response, 'overview.phtml', $args);
@@ -72,10 +73,27 @@ $app->post('/add', function (Request $request, Response $response, array $args) 
     return $this->renderer->render($response, 'stock.phtml', $args);
 });
 
+$app->post('/addCustomers', function (Request $request, Response $response, array $args) {
+    // $product = new Product();
+    
+    // $product->name = $request->getParam('name');
+    // $product->price = $request->getParam('price');
+    // $product->quantity = $request->getParam('quantity');
+    // $product->description = $request->getParam('description');
+    // $product->save();
+
+    return $this->renderer->render($response, 'customers.phtml', $args);
+});
+
+
 
 //Routes with overview and other things that could be useful
 $app->get('/login', function (Request $request, Response $response, array $args) {
     return $this->renderer->render($response, 'login.phtml', $args);
+});
+
+$app->get('/addCustomers', function (Request $request, Response $response, array $args) {
+    return $this->renderer->render($response, 'addCustomers.phtml', $args);
 });
 
 $app->get('/register', function (Request $request, Response $response, array $args) {
@@ -93,6 +111,7 @@ $app->get('/stock', function (Request $request, Response $response, array $args)
     $args['products'] = $products;
     return $this->renderer->render($response, 'stock.phtml', $args);
 });
+
 
 $app->get('/overview', function (Request $request, Response $response, array $args) {
     return $this->renderer->render($response, 'overview.phtml', $args);
