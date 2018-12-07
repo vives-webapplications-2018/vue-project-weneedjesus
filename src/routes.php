@@ -16,7 +16,7 @@ $app->get('/index', function (Request $request, Response $response, array $args)
 });
 
 //Routes for forms (users)
-$app->post('/login', function (Request $request, Response $response, array $args) {
+$app->post('/register', function (Request $request, Response $response, array $args) {
     $user = new User();
 
     if ($user->valid($request->getParam('email')) ) {
@@ -44,16 +44,18 @@ $app->post('/login', function (Request $request, Response $response, array $args
     return $this->renderer->render($response, 'login.phtml', $args);
 });
 
-$app->post('/overview', function (Request $request, Response $response, array $args) {
-
+$app->post('/login', function (Request $request, Response $response, array $args) {
+    // if($this->user) {
+    //     $args['user'] = $user;
+    //     return $this->renderer->render($response, 'overview.phtml', $args);
+    // }
     $loginUser = User::where('email', '=', $request->getParam('email'))->first();
     if (password_verify($request->getParam('password'), $loginUser->password)) {
-       // echo "Logged in!";
-        $_SESSION['authorized'] = TRUE;
-        $_SESSION['user_id'] = $loginUser->id;
-        $args['email'] = $request->getParam('email');
-        $args['firstname'] = $loginUser->firstname;
-        return $this->renderer->render($response, 'overview.phtml', $args);
+       $this->session->set('user_id', $loginUser->id);
+
+        $args['user'] = $loginUser;
+        return $response->withRedirect('/overview', $status = null);
+        // return $this->renderer->render($response, 'overview.phtml', $args);
     } else {
         $this->flash->addMessage('Test', 'This is a message');
         return $this->renderer->render($response, 'index.phtml', $args);
@@ -85,8 +87,6 @@ $app->post('/addCustomers', function (Request $request, Response $response, arra
     return $this->renderer->render($response, 'customers.phtml', $args);
 });
 
-
-
 //Routes with overview and other things that could be useful
 $app->get('/login', function (Request $request, Response $response, array $args) {
     return $this->renderer->render($response, 'login.phtml', $args);
@@ -114,6 +114,8 @@ $app->get('/stock', function (Request $request, Response $response, array $args)
 
 
 $app->get('/overview', function (Request $request, Response $response, array $args) {
+    $args['user'] = $request->getAttribute('user');
+    var_dump($request->getAttribute('user'));
     return $this->renderer->render($response, 'overview.phtml', $args);
 });
 
@@ -123,4 +125,9 @@ $app->get('/add', function (Request $request, Response $response, array $args) {
 
 $app->get('/profile', function (Request $request, Response $response, array $args) {
     return $this->renderer->render($response, 'profile.phtml', $args);
+});
+
+$app->get('/logout', function (Request $request, Response $response, array $args) {
+    $this->session::destroy();
+    return $this->renderer->render($response, 'index.phtml', $args);
 });
