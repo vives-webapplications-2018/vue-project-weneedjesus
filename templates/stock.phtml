@@ -16,11 +16,30 @@
         
         <?php
         use \App\Models\Product;
+        use \App\Listcreator\ListCreator;
+
         $products = Product::all();
+
+        $fileRoute = "/stock/";
+
+        $productIdArray = [];
+        $productList = [];
+
+        $title = "Products in stock";
+
         foreach ($products as $product)
         {
-            echo "<p>$product->id.$product->name, amount in stock: $product->quantity<br></p>";
+            $id = $product->id;
+            array_push($productIdArray, $id);
+
+            $name = $product->name;
+            $quantity = $product->quantity;
+
+            $listInput = $name . ", amount in stock: " . $quantity;
+            array_push($productList, $listInput);
         }
+        echo $productList = new ListCreator($fileRoute, $productIdArray, $title, $productList);
+        //echo "<p>$product->id.$product->name, amount in stock: $product->quantity<br></p>";
         ?>
 
         <br>
