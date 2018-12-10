@@ -32,7 +32,7 @@ class ListCreator{
         return (string) $this->content;
     }
 
-    public function createList()
+    private function createList()
     {
         $output = "";
         $counter = 0;
