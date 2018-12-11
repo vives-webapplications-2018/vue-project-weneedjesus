@@ -40,7 +40,6 @@ $app->post('/register', function (Request $request, Response $response, array $a
     $user->city = $request->getParam('city');
 
     $user->save();
-
     return $this->renderer->render($response, 'login.phtml', $args);
 });
 
@@ -74,24 +73,31 @@ $app->post('/add', function (Request $request, Response $response, array $args) 
 $app->post('/addCustomers', function (Request $request, Response $response, array $args) {
     $customer = new Customer(); 
     //TODO: need to fix the trim method
-    if (!$customer->trim($request->getParam('firstname') == "") && !$customer->trim($request->getParam('lastname') == "")  && !$customer->trim($request->getParam('birthday') == "")){
-        $customer->firstname = $request->getParam('firstname');
-        $customer->lastname = $request->getParam('lastname');
-        $customer->birthday = $request->getParam('birthday');
+    $firstname = $customer->cleanup($request->getParam('firstname'));
+    $lastname = $customer->cleanup($request->getParam('lastname'));
+    $birthday = $customer->cleanup($request->getParam('birthday'));
+
+    try{
+        if ($firstname == "" || $lastname == ""  || $birthday == ""){
+            throw new Exception("Fields can't be empty! Please try again!");
+        }
+        $customer->firstname = $firstname;
+        $customer->lastname = $lastname;
+        $customer->birthday = $birthday;
         $customer->save();
-    }else{throw new Exception("Empty strings are not allowed!");}
+        return $response->withRedirect('/customers', $status = null);
+        
+    } catch (Exception $e) {
+        $this->flash->addMessage("Exception", "Fields can't be empty! Please try again!");
+        return $e->getMessage();
+    }
    
-    return $response->withRedirect('/customers', $status = null);
 });
-
-
 
 //Update routes
 $app->get('/stock/{id}', function (Request $request, Response $response, array $args) {
-    
     $id = $request->getAttribute('id');
     $product = Product::find($id);
-
     if($product == null){throw new Exception('There is no such product in the database!');}
 
     return $this->renderer->render($response, 'editProduct.phtml', $args);
@@ -140,7 +146,7 @@ $app->get('/stock', function (Request $request, Response $response, array $args)
 
 $app->get('/overview', function (Request $request, Response $response, array $args) {
     $args['user'] = $request->getAttribute('user');
-    var_dump($request->getAttribute('user'));
+    //var_dump($request->getAttribute('user'));
     return $this->renderer->render($response, 'overview.phtml', $args);
 });
 
