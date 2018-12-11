@@ -98,9 +98,16 @@ $app->post('/addCustomers', function (Request $request, Response $response, arra
 $app->get('/stock/{id}', function (Request $request, Response $response, array $args) {
     $id = $request->getAttribute('id');
     $product = Product::find($id);
-    if($product == null){throw new Exception('There is no such product in the database!');}
-
-    return $this->renderer->render($response, 'editProduct.phtml', $args);
+    try {
+        if($product == null){
+            throw new Exception('There is no such product in the database!');
+        }
+        return $this->renderer->render($response, 'editProduct.phtml', $args);   
+    } 
+    catch (Exception $e) {
+       return $e->getMessage();
+    }
+       
 });
 $app->post('/stock/{id}', function (Request $request, Response $response, array $args) {
    
