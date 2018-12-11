@@ -73,10 +73,14 @@ $app->post('/add', function (Request $request, Response $response, array $args) 
 
 $app->post('/addCustomers', function (Request $request, Response $response, array $args) {
     $customer = new Customer(); 
-    $customer->firstname = $request->getParam('firstname');
-    $customer->lastname = $request->getParam('lastname');
-    $customer->birthday = $request->getParam('birthday');
-    $customer->save();
+    //TODO: need to fix the trim method
+    if (!$customer->trim($request->getParam('firstname') == "") && !$customer->trim($request->getParam('lastname') == "")  && !$customer->trim($request->getParam('birthday') == "")){
+        $customer->firstname = $request->getParam('firstname');
+        $customer->lastname = $request->getParam('lastname');
+        $customer->birthday = $request->getParam('birthday');
+        $customer->save();
+    }else{throw new Exception("Empty strings are not allowed!");}
+   
 
     return $response->withRedirect('/customers', $status = null);
 });
@@ -95,7 +99,7 @@ $app->get('/stock/{id}', function (Request $request, Response $response, array $
 
     if($product == null){throw new Exception('There is no such product in database!');}
 
-    return $this->renderer->render($response, 'edit.phtml', $args);
+    return $this->renderer->render($response, 'editProduct.phtml', $args);
 });
 
 //Routes with overview and other things that could be useful
