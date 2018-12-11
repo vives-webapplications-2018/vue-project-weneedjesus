@@ -81,7 +81,6 @@ $app->post('/addCustomers', function (Request $request, Response $response, arra
         $customer->save();
     }else{throw new Exception("Empty strings are not allowed!");}
    
-
     return $response->withRedirect('/customers', $status = null);
 });
 
