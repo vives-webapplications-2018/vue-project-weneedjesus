@@ -7,12 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     public $timestamps = false;
-
-    public function trim($item)
-    {
-        $trimmed = !empty($item) ? trim($item) : null;
-        return $trimmed;
-    }
+  
 //TODO: check if email already exists in db
     public function valid($em)
     {
