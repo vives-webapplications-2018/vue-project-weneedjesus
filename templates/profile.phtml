@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <meta charset="utf-8"/>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Kaffie</title>
         <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
@@ -19,16 +21,19 @@
         use \App\Models\User;
 
             $id= 1;
-            
             $user = User::find($id);
                 echo $user->firstname;
-            
-   
+                echo $user->lastname;
+                echo $user->email;
+                echo $user->address;
+                echo $user->zip;
+                echo $user->city;
 ?>
-
-
+            <br>
+            <br>
             <a  href="/overview" class="waves-effect waves-light btn-large"><i class="material-icons right">arrow_back</i>Back</a>
             <a  href="/logout" class="waves-effect waves-light btn-large"><i class="material-icons right">exit_to_app</i>Log out</a>
+            <a  href="/editPassword" class="waves-effect waves-light btn-large"><i class="material-icons right">edit</i>Edit Password</a>
         </div>
     </body>
 </html>
