@@ -102,12 +102,11 @@ $app->get('/stock/{id}', function (Request $request, Response $response, array $
         if($product == null){
             throw new Exception('There is no such product in the database!');
         }
-        return $this->renderer->render($response, 'editProduct.phtml', $args);   
-    } 
+        return $this->renderer->render($response, 'editProduct.phtml', $args);
+         }    
     catch (Exception $e) {
        return $e->getMessage();
     }
-       
 });
 $app->post('/stock/{id}', function (Request $request, Response $response, array $args) {
    
