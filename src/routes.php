@@ -15,7 +15,7 @@ $app->get('/index', function (Request $request, Response $response, array $args)
     return $this->renderer->render($response, 'index.phtml', $args);
 });
 
-//Routes for forms (users)
+//Routes for forms (users) TODO: cleanup method needs to be used here
 $app->post('/register', function (Request $request, Response $response, array $args) {
     $user = new User();
 

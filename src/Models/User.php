@@ -20,6 +20,13 @@ class User extends Model
             }
         }
     }
+    //TODO: needs to be used for registration! 
+    public function cleanup($item)
+    {
+        $trimmed = !empty($replaced) ? trim($replaced) : null;
+        return $trimmed;
+    }
+
 
     public function validPw($pw, $cpw)
     {
