@@ -80,6 +80,23 @@ $app->post('/addCustomers', function (Request $request, Response $response, arra
 
     return $response->withRedirect('/customers', $status = null);
 });
+$app->post('/stock/{id}', function (Request $request, Response $response, array $args) {
+   
+
+    return $this->renderer->render($response, 'stock.phtml', $args);
+});
+
+
+//Update routes
+$app->get('/stock/{id}', function (Request $request, Response $response, array $args) {
+    
+    $id = $request->getAttribute('id');
+    $product = Product::find($id);
+
+    if($product == null){throw new Exception('There is no such product in database!');}
+
+    return $this->renderer->render($response, 'edit.phtml', $args);
+});
 
 //Routes with overview and other things that could be useful
 $app->get('/login', function (Request $request, Response $response, array $args) {
