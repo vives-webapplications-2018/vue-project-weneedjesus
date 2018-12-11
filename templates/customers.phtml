@@ -14,13 +14,33 @@
     </head>       
     <body>
     <?php
-    
+        use \App\Models\Customer;
+        use \App\Listcreator\ListCreator;
+
+        $customers = Customer::all();
+
+        $fileRoute = "/customers/";
+
+        $listIcon = "assignment_ind";
+
+        $customerIdArray = [];
+        $customerList = [];
+
+        $title = "Customers";
+
         foreach ($customers as $customer)
         {
-            echo "<p>$customer->firstname: $customer->lastname<br></p>";
+            $id = $customer->id;
+            array_push($customerIdArray, $id);
+
+            $firstname = $customer->firstname;
+            $lastname = $customer->lastname;
+
+            $listInput = $firstname . " " . $lastname;
+            array_push($customerList, $listInput);
         }
-       
-    ?>
+        echo $customerList = new ListCreator($fileRoute, $listIcon, $customerIdArray, $title, $customerList);
+        ?>
         <br>
         <div class="row">
             <a  href="/overview" class="waves-effect waves-light btn-large"><i class="material-icons right">arrow_back</i>Back</a>

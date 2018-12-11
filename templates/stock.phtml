@@ -22,6 +22,8 @@
 
         $fileRoute = "/stock/";
 
+        $listIcon = "edit";
+
         $productIdArray = [];
         $productList = [];
 
@@ -38,8 +40,7 @@
             $listInput = $name . ", amount in stock: " . $quantity;
             array_push($productList, $listInput);
         }
-        echo $productList = new ListCreator($fileRoute, $productIdArray, $title, $productList);
-        //echo "<p>$product->id.$product->name, amount in stock: $product->quantity<br></p>";
+        echo $productList = new ListCreator($fileRoute, $listIcon, $productIdArray, $title, $productList);
         ?>
 
         <br>
