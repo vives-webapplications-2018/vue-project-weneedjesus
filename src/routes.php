@@ -140,5 +140,5 @@ $app->get('/profile', function (Request $request, Response $response, array $arg
 
 $app->get('/logout', function (Request $request, Response $response, array $args) {
     $this->session::destroy();
-    return $this->renderer->render($response, 'index.phtml', $args);
+    return $response->withRedirect('/login', $status = null);
 });
