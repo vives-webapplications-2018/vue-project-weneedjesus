@@ -22,7 +22,6 @@
             $user = User::find($id);
                 echo $user->firstname;
                 echo $user->lastname;
-                echo $user->password;
                 echo $user->email;
                 echo $user->address;
                 echo $user->zip;
@@ -32,6 +31,7 @@
             <br>
             <a  href="/overview" class="waves-effect waves-light btn-large"><i class="material-icons right">arrow_back</i>Back</a>
             <a  href="/logout" class="waves-effect waves-light btn-large"><i class="material-icons right">exit_to_app</i>Log out</a>
+            <a  href="/editPassword" class="waves-effect waves-light btn-large"><i class="material-icons right">edit</i>Edit Password</a>
         </div>
     </body>
 </html>
