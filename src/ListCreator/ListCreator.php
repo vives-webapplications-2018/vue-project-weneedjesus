@@ -12,9 +12,10 @@ use \JensVercruysse\HtmlElements\A;
 class ListCreator
 {
 
-    public function __construct($fileRoute = "", $id = [], $title = "", $input = [])
+    public function __construct($fileRoute = "", $listIcon = "", $id = [], $title = "", $input = [])
     {
         $this->fileRoute = $fileRoute;
+        $this->listIcon = $listIcon;
         $this->id = $id;
         $this->title = $title;
         $this->input = $input;
@@ -42,7 +43,7 @@ class ListCreator
         {
             $currentId = $this->id[$counter];
 
-            $listIcon = new I("edit", ["class" => "material-icons"]);
+            $listIcon = new I($this->listIcon, ["class" => "material-icons"]);
             $listLink = new A($listIcon, ["href" => $this->fileRoute . $currentId, "class" => "secondary-content"]);
             $listIconDiv = new Div($listItem . $listLink);
             $li = new Li($listIconDiv, ["class" => "collection-item"]);
