@@ -9,7 +9,8 @@ use \JensVercruysse\HtmlElements\Div;
 use \JensVercruysse\HtmlElements\I;
 use \JensVercruysse\HtmlElements\A;
 
-class ListCreator{
+class ListCreator
+{
 
     public function __construct($fileRoute = "", $id = [], $title = "", $input = [])
     {
