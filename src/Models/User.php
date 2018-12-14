@@ -26,6 +26,15 @@ class User extends Model
         $trimmed = !empty($replaced) ? trim($replaced) : null;
         return $trimmed;
     }
+    public function emExists($em)
+    {
+        if (User::where('email', '=', $em)->exists()) {
+            echo "E-mail already exists";
+            return false;
+        } else {
+            return true;
+        }
+    }
 
 
     public function validPw($pw, $cpw)
