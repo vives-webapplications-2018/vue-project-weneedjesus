@@ -126,6 +126,9 @@ $app->post('/customers/{id}', function (Request $request, Response $response, ar
 $app->get('/login', function (Request $request, Response $response, array $args) {
     return $this->renderer->render($response, 'login.phtml', $args);
 });
+$app->get('/editpw', function (Request $request, Response $response, array $args) {
+    return $this->renderer->render($response, 'editPassword.phtml', $args);
+});
 
 $app->get('/addCustomers', function (Request $request, Response $response, array $args) {
     return $this->renderer->render($response, 'addCustomers.phtml', $args);
