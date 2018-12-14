@@ -7,20 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     public $timestamps = false;
-  
-//TODO: check if email already exists in db
+
     public function valid($em)
     {
         if (!filter_var($em, FILTER_VALIDATE_EMAIL)) {
             echo "Invalid email format";
             return false;
-        }else  {
-            if($this->emExists($em)){
+        } else {
+            if ($this->emExists($em)) {
                 return !filter_var($em, FILTER_VALIDATE_EMAIL) === false;
             }
         }
     }
-    //TODO: needs to be used for registration! 
+
     public function cleanup($item)
     {
         $trimmed = !empty($replaced) ? trim($replaced) : null;
@@ -35,7 +34,6 @@ class User extends Model
             return true;
         }
     }
-
 
     public function validPw($pw, $cpw)
     {
