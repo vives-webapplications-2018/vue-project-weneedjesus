@@ -157,14 +157,11 @@ $app->get('/overview', function (Request $request, Response $response, array $ar
 });
 
 $app->get('/add', function (Request $request, Response $response, array $args) {
-    return $this->renderer->render($response, 'addProduct.phtml', $args);
-});
-
-$app->get('/editPassword', function (Request $request, Response $response, array $args) {
-    return $this->renderer->render($response, 'editPassword.phtml', $args);
+    return $this->renderer->render($response, 'add.phtml', $args);
 });
 
 $app->get('/profile', function (Request $request, Response $response, array $args) {
+    $args['user'] = $request->getAttribute('user');
     return $this->renderer->render($response, 'profile.phtml', $args);
 });
 
