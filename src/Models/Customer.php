@@ -10,7 +10,7 @@ class Customer extends Model
 
     public function cleanup($item)
     {
-        $trimmed = !empty($replaced) ? trim($replaced) : null;
+        $trimmed = !empty($item) ? trim($item) : null;
         return $trimmed;
     }
 
