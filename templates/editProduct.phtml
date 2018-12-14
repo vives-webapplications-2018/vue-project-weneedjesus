@@ -1,27 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Kaffie</title>
-    <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <link rel="icon" href="/favicon/kaffie_logo.png" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <div class="row">
-    <h1>Kaffie</h1>
-        <form action="POST" action="/edit"> 
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Kaffie</title>
+        <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+        <link rel="icon" href="/favicon/kaffie_logo.png" type="image/png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+
         
-            <div class="row">
-                    <a  href="/stock" class="waves-effect waves-light btn-large"><i class="material-icons right">arrow_back</i>Back</a>
-            </div>
-        </form>
-    </div>
-</body>
+    </head>
+    <body>
+    <div class="row">
+        <h1>Kaffie</h1>
+
+      <form method="put" action="/stock">
+ 
+      <div class="row">
+        <div class="input-field col s2 offset-s4">
+          <i class="material-icons prefix">playlist_add</i>
+          <input type="text" id="autocomplete-input" class="autocomplete" name="name">
+          <label for="autocomplete-input">Name</label>
+        </div>
+        <div class="input-field col s1">
+          <i class="material-icons prefix">monetization_on</i>
+          <input type="text" id="autocomplete-input" class="autocomplete" name="price">
+          <label for="autocomplete-input">Price</label>
+        </div>
+        <div class="input-field col s1">
+          <i class="material-icons prefix">insert_chart</i>
+          <input type="text" id="autocomplete-input" class="autocomplete" name="quantity">
+          <label for="autocomplete-input">Quantity</label>
+        </div>
+        </div>
+      
+      <div class="row" col s4>
+        <div class="input-field col s4 offset-s4">
+          <i class="material-icons prefix">info</i>
+          <input type="text" id="autocomplete-input" class="autocomplete" name="description">
+          <label for="autocomplete-input">Description</label>
+        </div>
+      </div>
+
+<br>
+        <div class="row">
+                <a  href="/stock" class="waves-effect waves-light btn-large"><i class="material-icons right">arrow_back</i>Back</a>
+                <button class="btn waves-effect waves-light btn-large" type="submit" name="action">Save<i class="material-icons right">save</i></button>     
+        </div>
+       </form>
+      </div>
+    </body>
 </html>
