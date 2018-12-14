@@ -39,7 +39,8 @@ class ListCreator
         $output = "";
         $counter = 0;
 
-        foreach ($this->input as $listItem) {
+        foreach ($this->input as $listItem) 
+        {
             $currentId = $this->id[$counter];
 
             $listIcon = new I($this->listIcon, ["class" => "material-icons"]);
