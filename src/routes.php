@@ -157,7 +157,7 @@ $app->get('/overview', function (Request $request, Response $response, array $ar
 });
 
 $app->get('/add', function (Request $request, Response $response, array $args) {
-    return $this->renderer->render($response, 'add.phtml', $args);
+    return $this->renderer->render($response, 'addProduct.phtml', $args);
 });
 
 $app->get('/profile', function (Request $request, Response $response, array $args) {
