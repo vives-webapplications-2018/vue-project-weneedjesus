@@ -7,7 +7,7 @@ use App\Models\User;
 
 $app->add(function ($request, $response, $next) {
 
-    if($this->session->get('user_id')) {
+    if ($this->session->get('user_id')) {
         $this->user = User::find($this->session->get('user_id'));
         $request = $request->withAttribute('user', $this->user);
     }
